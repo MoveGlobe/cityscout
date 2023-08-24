@@ -2,11 +2,15 @@
 
 import styled from 'styled-components';
 import Image from 'next/image';
-import img from './placeholder.jpg';
+import img from '../public/placeholder.jpg';
 
 const StyledPage = styled.div`
   height: 100vh;
   width: 100vw;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
     height: 100%;
@@ -14,12 +18,7 @@ const StyledPage = styled.div`
   }
 `;
 
-export default async function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.styled-components file.
-   */
+export default function Index() {
   return (
     <StyledPage>
       <Image src={img} alt="Coming Soon" />

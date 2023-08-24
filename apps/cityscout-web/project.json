@@ -1,7 +1,7 @@
 {
-  "name": "cityscout-main",
+  "name": "cityscout-web",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/cityscout-main",
+  "sourceRoot": "apps/cityscout-web",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,29 +9,33 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/cityscout-main"
+        "outputPath": "dist/apps/cityscout-web"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/cityscout-main"
+          "outputPath": "apps/cityscout-web",
+          "dev": true
         },
-        "production": {}
+        "production": {
+          "outputPath": "dist/apps/cityscout-web",
+          "dev": false
+        }
       }
     },
     "serve": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "cityscout-main:build",
+        "buildTarget": "cityscout-web:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "cityscout-main:build:development",
+          "buildTarget": "cityscout-web:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "cityscout-main:build:production",
+          "buildTarget": "cityscout-web:build:production",
           "dev": false
         }
       }
@@ -39,14 +43,14 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "cityscout-main:build:production"
+        "buildTarget": "cityscout-web:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/cityscout-main/jest.config.ts",
+        "jestConfig": "apps/cityscout-web/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -60,7 +64,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/cityscout-main/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/cityscout-web/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

@@ -12,7 +12,7 @@
       "rules": {
         "@next/next/no-html-link-for-pages": [
           "error",
-          "apps/cityscout-main/pages"
+          "apps/cityscout-web/pages"
         ]
       }
     },
